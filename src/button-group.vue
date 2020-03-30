@@ -5,7 +5,16 @@
 </template>
 
 <script>
-  export default {}
+  export default {
+    mounted() {
+      for(let node of this.$el.children){
+        const name = node.nodeName.toLowerCase()
+        if(name !== 'button'){
+          console.warn(`g-button-group中只能是g-button，但你使用了${name}`)
+        }
+      }
+    }
+  }
 </script>
 <style lang="scss">
   .g-button-group {
