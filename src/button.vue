@@ -9,17 +9,15 @@
 </template>
 
 <script>
-  import Icon from "./icon"
   export default {
-    components: {Icon},
     // props: ['icon', 'iconPosition']
     props: {
       icon: {},
-      loading:{
+      loading: {
         type: Boolean,
         default: false,
       },
-      iconPosition:{
+      iconPosition: {
         type: String,
         default: 'left',
         validator(value) {
@@ -32,10 +30,15 @@
 </script>
 
 <style lang="scss">
-  @keyframes spin{
-    0%{transform: rotate(0deg)}
-    100%{transform: rotate(360deg)}
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg)
+    }
+    100% {
+      transform: rotate(360deg)
+    }
   }
+
   .g-button {
     height: var(--button-height);
     font-size: var(--font-size);
@@ -48,26 +51,15 @@
     align-items: center;
     vertical-align: middle;
 
-    &:hover {
-      border-color: var(--border-color-hover);
-    }
+    &:hover {border-color: var(--border-color-hover);}
 
-    &:active {
-      border-color: var(--button-active-bg);
-    }
+    &:active {border-color: var(--button-active-bg);}
 
-    &:focus {
-      outline: none;
-    }
+    &:focus {outline: none;}
 
-    > .icon {
-      order: 1;
-      margin-right: .2em;
-    }
+    > .icon {order: 1;margin-right: .2em;}
 
-    > .content {
-      order: 2;
-    }
+    > .content {order: 2;}
 
     &.icon-right {
       .icon {
@@ -75,13 +67,11 @@
         margin-right: 0;
         margin-left: .2em;
       }
-      .content {
-        order: 1;
-      }
+
+      .content {order: 1;}
     }
-    .loading{
-      animation:spin 2s infinite linear;
-    }
+
+    .loading {animation: spin 2s infinite linear;}
   }
 
 </style>
