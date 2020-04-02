@@ -3,13 +3,18 @@
     <g-icon class="loading icon" v-if="loading" name="loading"></g-icon>
     <g-icon v-if="icon && !loading" :name="icon" class="icon"></g-icon>
     <div class="content">
-      <slot/>
+      <slot></slot>
     </div>
   </button>
 </template>
 
 <script>
+  import Icon from './icon'
+
   export default {
+    components: {
+      'g-icon':Icon
+    },
     // props: ['icon', 'iconPosition']
     props: {
       icon: {},
