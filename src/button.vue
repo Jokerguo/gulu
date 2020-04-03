@@ -1,5 +1,5 @@
 <template>
-  <button class="g-button" :class="{[`icon-${iconPosition}`] : true}" @click="$emit('click')">
+  <button class="g-button gds" :class="{[`icon-${iconPosition}`] : true}" @click="$emit('click')">
     <g-icon class="loading icon" v-if="loading" name="loading"></g-icon>
     <g-icon v-if="icon && !loading" :name="icon" class="icon"></g-icon>
     <div class="content">
@@ -43,7 +43,6 @@
       transform: rotate(360deg)
     }
   }
-
   .g-button {
     height: var(--button-height);
     font-size: var(--font-size);
@@ -58,7 +57,7 @@
 
     &:hover {border-color: var(--border-color-hover);}
 
-    &:active {border-color: var(--button-active-bg);}
+    &:active {background-color: var(--button-active-bg);}
 
     &:focus {outline: none;}
 
