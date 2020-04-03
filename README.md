@@ -49,11 +49,6 @@ IE 15 及以上浏览器都支持此样式
     }
 ```
 
-4. 引入svg symbols
-```
-<script src="//at.alicdn.com/t/font_1722215_4gxcn9pc8si.js"></script>
-```
-
 ## 文档
 
 ## 提问
