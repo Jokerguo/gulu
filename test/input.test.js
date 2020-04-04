@@ -62,14 +62,20 @@ describe('Button', () => {
       vm.$destroy()
     })
     it('支持change/input/focus/blur事件', () => {
-      ['change','input','focus','blur'].forEach((eventName)=>{
+      ['change', 'input', 'focus', 'blur'].forEach((eventName) => {
         vm = new Constructor({}).$mount()
-        const callback = sinon.fake();
-        vm.$on(eventName,callback)
-        let event = new Event(eventName);
+        const callback = sinon.fake()
+        vm.$on(eventName, callback)
+        let event = new Event(eventName)
+        Object.defineProperty(
+          event, 'target',
+        {
+          value:{value : 'hi'}, enumerable: true
+        }
+      )
         let inputElement = vm.$el.querySelector('input')
         inputElement.dispatchEvent(event)
-        expect(callback).to.have.been.called.calledWith(event);
+        expect(callback).to.have.been.called.calledWith('hi')
       })
     })
   })

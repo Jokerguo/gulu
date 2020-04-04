@@ -35,17 +35,18 @@
 </head>
 <body>
 <div id="app">
+<!--  <div class="box">-->
+<!--    <g-input value="张三" disabled></g-input>-->
+<!--    <g-input value="李四" readonly></g-input>-->
+<!--    <g-input value="王五"></g-input>-->
+<!--  </div>-->
   <div class="box">
-    <g-input value="张三" disabled></g-input>
-    <g-input value="李四" readonly></g-input>
-    <g-input value="王五"></g-input>
+    <g-input value="希" @change="inputChange"  v-model="message"></g-input>
   </div>
-  <div class="box">
-    <g-input value="希" @change="inputChange"></g-input>
-  </div>
-  <div class="box">
-    <g-input value="希" error="姓名不能少于两个字"></g-input>
-  </div>
+  <span>{{message}}</span>
+<!--  <div class="box">-->
+<!--    <g-input value="希" error="姓名不能少于两个字"></g-input>-->
+<!--  </div>-->
 
   <div class="box">
     <g-button :loading="loading1" @click="loading1 = !loading1">哈哈</g-button>
