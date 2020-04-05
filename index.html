@@ -32,18 +32,51 @@
       margin: 20px;
     }
   </style>
+
 </head>
 <body>
 <div id="app">
+
+  <g-row>
+    <g-col></g-col>
+    <g-col></g-col>
+  </g-row>
+
+  <g-row>
+    <g-col></g-col>
+    <g-col></g-col>
+    <g-col></g-col>
+  </g-row>
+
+  <g-row>
+    <g-col></g-col>
+    <g-col></g-col>
+    <g-col></g-col>
+    <g-col></g-col>
+  </g-row>
+
+  <g-row>
+    <g-col span="2"></g-col>
+    <g-col span="22"></g-col>
+  </g-row>
+
+  <g-row>
+    <g-col span="4"></g-col>
+    <g-col span="20"></g-col>
+  </g-row>
+
+  <hr>
 <!--  <div class="box">-->
 <!--    <g-input value="张三" disabled></g-input>-->
 <!--    <g-input value="李四" readonly></g-input>-->
 <!--    <g-input value="王五"></g-input>-->
 <!--  </div>-->
+
   <div class="box">
     <g-input value="希" @change="inputChange"  v-model="message"></g-input>
+    <span>{{message}}</span>
   </div>
-  <span>{{message}}</span>
+
 <!--  <div class="box">-->
 <!--    <g-input value="希" error="姓名不能少于两个字"></g-input>-->
 <!--  </div>-->
