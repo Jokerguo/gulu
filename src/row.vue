@@ -30,5 +30,5 @@
 </script>
 
 <style lang="scss" scoped>
-  .row{display: flex;}
+  .row{display: flex;flex-wrap: wrap}
 </style>
