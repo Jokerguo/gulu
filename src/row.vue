@@ -10,7 +10,7 @@
     props:{
       gutter:{
         type:[Number,String]
-      }
+      },
     },
     mounted() {
       this.$children.forEach(vm=>{
@@ -24,7 +24,7 @@
           marginLeft: -gutter/2+'px',
           marginRight: -gutter/2+'px'
         }
-      }
+      },
     }
   }
 </script>
