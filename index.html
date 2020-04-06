@@ -20,11 +20,6 @@
       --border-color: #999;
       --border-color-hover: #666;
     }
-
-    #app {
-      margin: 20px;
-    }
-
     body {
       font-size: var(--font-size);
     }
@@ -32,8 +27,15 @@
 
   <style>
     .demo {
-      background: #ddd;
       border: 1px solid #666;
+      min-height: 100px;
+    }
+    .sider{
+      background-color: #999;
+      width: 200px;
+    }
+    .header{
+      background: red;
       height: 100px;
     }
   </style>
@@ -41,14 +43,15 @@
 </head>
 <body>
 <div id="app">
-  <g-row>
-    <g-col span="24"  :ipad="{span:12}" :narrow-pc="{span:8}">
-      <div class="demo"></div>
-    </g-col>
-    <g-col span="24" :ipad="{span:12}" :narrow-pc="{span:8,offset:8}">
-      <div class="demo"></div>
-    </g-col>
-  </g-row>
+  <g-layout style="height: 100vh;">
+    <g-sider class="sider">sider</g-sider>
+    <g-layout>
+      <g-header class="header">header</g-header>
+      <g-content class="demo">content</g-content>
+      <g-footer class="demo">footer</g-footer>
+    </g-layout>
+  </g-layout>
+
 </div>
 
 <script src="src/app.js"></script>
