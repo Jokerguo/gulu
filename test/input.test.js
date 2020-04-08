@@ -40,7 +40,6 @@ describe('Button', () => {
         }
       }).$mount()
       const inputElement = vm.$el.querySelector('input')
-      // console.log(inputElement.outerHTML)
       expect(inputElement.readOnly).to.eq(true)
     })
     it('接收 error', () => {

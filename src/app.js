@@ -51,7 +51,7 @@ new Vue({
           position,
           enableHtml: false,
           closeButton: {text:'已充值',callback(){console.log('他说已经充值了')}},
-          autoClose: false
+          autoClose: 3
         })
       }
     },
