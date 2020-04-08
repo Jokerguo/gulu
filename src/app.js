@@ -37,9 +37,18 @@ new Vue({
   created(){
   },
     methods: {
-      showToast(){
+      showToast1(){
+        this.showToast('top')
+      },
+      showToast2(){
+        this.showToast('middle')
+      },
+      showToast3(){
+        this.showToast('bottom')
+      },
+      showToast(position){
         this.$toast(`${parseInt(Math.random() * 100)}你的余额需要充值`,{
-          position:'bottom',
+          position,
           enableHtml: false,
           closeButton: {text:'已充值',callback(){console.log('他说已经充值了')}},
           autoClose: false
