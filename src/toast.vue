@@ -18,9 +18,9 @@
     name: 'GuluToast',
     props: {
       autoClose: {
-        type: [Boolean,Number],
+        type: [Boolean, Number],
         default: 5,
-        validator(value){
+        validator(value) {
           return value === false || typeof value === 'number'
         }
       },
@@ -63,8 +63,10 @@
       },
       updateStyle() {
         this.$nextTick(() => {
-          this.$refs.line.style.height =
-            `${this.$refs.toast.getBoundingClientRect().height}px`
+          if (this.$refs.line) {
+            this.$refs.line.style.height =
+              `${this.$refs.toast.getBoundingClientRect().height}px`
+          }
         })
       },
       close() {
@@ -75,7 +77,7 @@
       onClickClose() {
         this.close()
         if (this.closeButton && typeof this.closeButton.callback === 'function') {
-          this.closeButton.callback()
+          this.closeButton.callback(this)
         }
       }
     },
@@ -87,15 +89,17 @@
   $font-size: 14px;
   $toast-min-height: 40px;
   $toast-bg: rgba(0, 0, 0, .75);
-  $animation-duration : 300ms;
+  $animation-duration: 300ms;
   @keyframes slide-up {
     0% {opacity: 0;transform: translateY(100%);}
     100% {opacity: 1;transform: translateY(0%)}
   }
+
   @keyframes slide-down {
     0% {opacity: 0;transform: translateY(-100%);}
     100% {opacity: 1;transform: translateY(0%)}
   }
+
   @keyframes fade-in {
     0% {opacity: 0}
     100% {opacity: 1}
@@ -104,22 +108,28 @@
   .wrapper {
     position: fixed; left: 50%;
     transform: translateX(-50%);
+
     &.position-top {
       top: 0;
-      .toast{
+
+      .toast {
         border-top-left-radius: 0;border-top-right-radius: 0;
         animation: slide-down $animation-duration;
       }
     }
+
     &.position-middle {
-      top: 50%;transform: translate(-50%,-50%);
+      top: 50%;transform: translate(-50%, -50%);
+
       .toast {
         animation: fade-in $animation-duration;
       }
-      }
+    }
+
     &.position-bottom {
       bottom: 0;
-      .toast{
+
+      .toast {
         border-bottom-left-radius: 0;border-bottom-right-radius: 0;
         animation: slide-up $animation-duration;
       }

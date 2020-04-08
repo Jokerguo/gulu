@@ -18,8 +18,7 @@ describe('Toast', () => {
       const Constructor = Vue.extend(Toast)
       const vm = new Constructor({
         propsData :{
-          autoClose : true,
-          autoCloseDelay: 1
+          autoClose : 1,
       }
       }).$mount(div)
       vm.$on('close',()=>{
@@ -27,20 +26,20 @@ describe('Toast', () => {
         done()
       })
     })
-    it('接收closeButton',()=>{
-      const callback = sinon.fake()
+    it('接受 closeButton', () => {
+      const callback = sinon.fake();
       const Constructor = Vue.extend(Toast)
       const vm = new Constructor({
-        propsData :{
-          closeButton:{
-            text:'测试',
-            callback
-          }
+        propsData: {
+          closeButton: {
+            text: '关闭吧',
+            callback,
+          },
         }
       }).$mount()
-      let closeElement = vm.$el.querySelector('.close')
-      expect(closeElement.textContent.trim()).to.eq('测试')
-      closeElement.click()
+      let closeButton = vm.$el.querySelector('.close')
+      expect(closeButton.textContent.trim()).to.eq('关闭吧')
+      closeButton.click()
       expect(callback).to.have.been.called
     })
     it('接收enableHtml',()=>{
@@ -60,7 +59,6 @@ describe('Toast', () => {
       const vm = new Constructor({
         propsData :{position: 'bottom'}
       }).$mount()
-      console.log(vm.$el)
       expect(vm.$el.classList.contains('position-bottom')).to.eq(true)
     })
 
