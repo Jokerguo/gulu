@@ -68,6 +68,7 @@
       },
       close() {
         this.$el.remove()
+        this.$emit('close')
         this.$destroy()
       },
       onClickClose(){
@@ -91,7 +92,7 @@
     min-height: $toast-min-height;
     line-height: 1.8;
     display: flex;align-items: center;
-    background: rgba(0, 0, 0, .75);
+    background: $toast-bg;
     border-radius: 4px;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, .50);
     padding: 0 16px;
