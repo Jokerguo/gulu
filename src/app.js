@@ -34,10 +34,13 @@ new Vue({
       loading3: false,
       message: 'hi'
     },
+  created(){
+    this.$toast('文字',{
+      enableHtml: true
+    })
+  },
     methods: {
-      showToast(){
-        this.$toast('我是message')
-      }
+      showToast(){}
     },
   }
 )
