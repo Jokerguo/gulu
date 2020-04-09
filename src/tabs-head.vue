@@ -1,7 +1,7 @@
 <template>
   <div class="tabs-head">
     <slot></slot>
-    <div class="line"></div>
+    <div class="line" ref="line"></div>
     <div class="actions-wrapper">
       <slot name="actions"></slot>
     </div>
@@ -14,9 +14,9 @@
     inject:['eventBus'],
     mounted() {
       this.eventBus.$on('update:selected',(name,vm)=>{
-        console.log(vm.$el)
-        // let {width,height,top,left} =vm.$el.getBoundingClientRect()
-        // console.log(width,height,top,left)
+         let {width,left} =vm.$el.getBoundingClientRect()
+        this.$refs.line.style.width = width+'px'
+        this.$refs.line.style.left = left+'px'
       })
     },
   }
@@ -26,7 +26,6 @@
   $tab-height: 40px;
   $blue: blue;
   .tabs-head{
-    border: 1px solid black;
     height: $tab-height;
     display: flex;
     justify-content: flex-start;
@@ -34,8 +33,8 @@
     > .line{
       position: absolute;
       bottom: 0;
-      width: 100px;
       border-bottom: 1px solid $blue;
+      transition:all 400ms;
     }
     > .actions-wrapper{
       margin-left: auto;
