@@ -30,6 +30,7 @@
     display: flex;
     justify-content: flex-start;
     position: relative;
+    border-bottom: 1px solid #ccc;
     > .line{
       position: absolute;
       bottom: 0;
@@ -38,6 +39,10 @@
     }
     > .actions-wrapper{
       margin-left: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-right:1em ;
     }
   }
 </style>
