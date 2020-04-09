@@ -6,37 +6,38 @@
 
 <script>
   export default {
-    data(){
-      return{
+    name:'GuluTabsItem',
+    data() {
+      return {
         active: false
       }
     },
-    props:{
-      disabled : {
+    props: {
+      disabled: {
         type: Boolean,
         default: false
       },
-      name:{
+      name: {
         type: String,
       }
     },
-    inject:['eventBus'],
-    computed:{
-      classes(){
+    inject: ['eventBus'],
+    computed: {
+      classes() {
         return {
-          active : this.active
+          active: this.active
         }
       },
     },
     mounted() {
-      this.eventBus.$on('update:selected',(name)=>{
+      this.eventBus.$on('update:selected', (name) => {
         this.active = name === this.name
       })
 
     },
-    methods:{
-      xxx(){
-        this.eventBus.$emit('update:selected',this.name)
+    methods: {
+      xxx() {
+        this.eventBus.$emit('update:selected', this.name,this)
       },
     }
 
@@ -45,7 +46,8 @@
 </script>
 
 <style lang="scss" scoped>
-  .tabs-item{
+  $blue: blue;
+  .tabs-item {
     flex-shrink: 0;
     padding: 0 1em;
     cursor: pointer;
@@ -53,8 +55,8 @@
     display: flex;
     align-items: center;
 
-    &.active{
-      background: red;
+    &.active {
+      color: $blue;
     }
   }
 </style>

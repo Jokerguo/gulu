@@ -6,6 +6,7 @@
 
 <script>
   export default {
+    name:'GuluTabsPane',
     data(){
       return{
         active: false
