@@ -48,6 +48,9 @@ new Vue({
   created(){
   },
     methods: {
+      yyy(){
+        console.log('yyy')
+      },
       showToast(){
         this.$toast(`${parseInt(Math.random() * 100)}你的余额需要充值`,{
           position:'middle',
