@@ -24,15 +24,17 @@
     data() {
       return {
         open: false,
+        single : false
       }
     },
     inject: ['eventBus'],
     mounted() {
       this.eventBus.$on('update:selected', (name) => {
-        if(name === this.name){
-          this.show()
-        }else{
+        if(name !== this.name){
+          if(this.single)
           this.close()
+        }else{
+          this.show()
         }
       })
     },
