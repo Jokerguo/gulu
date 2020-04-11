@@ -103,27 +103,43 @@
       content: '';
       display: block;
       border: 10px solid transparent;
-      width: 0px;
-      height: 0px;
+      width: 0;
+      height: 0;
       position: absolute;
-      left: 10px;
     }
-
     &.position-top {
       transform: translateY(-100%);
       margin-top: -10px;
-
-      &::before {border-top-color: $border-color;top: 100%;}
-
-      &::after {border-top-color: white;top: calc(100% - 1px);}
+      &::before, &::after {
+        left: 10px;
+      }
+      &::before {
+        border-top-color: black;
+        border-bottom: none;
+        top: 100%;
+      }
+      &::after {
+        border-top-color: white;
+        border-bottom: none;
+        top: calc(100% - 1px);
+      }
     }
-
     &.position-bottom {
       margin-top: 10px;
-      &::before {border-bottom-color: $border-color;bottom: 100%;}
-      &::after {border-bottom-color: white;bottom: calc(100% - 1px);}
+      &::before, &::after {
+        left: 10px;
+      }
+      &::before {
+        border-top: none;
+        border-bottom-color: black;
+        bottom: 100%;
+      }
+      &::after {
+        border-top: none;
+        border-bottom-color: white;
+        bottom: calc(100% - 1px);
+      }
     }
-
     &.position-left {
       transform: translateX(-100%);
       margin-left: -10px;
@@ -131,20 +147,35 @@
         transform: translateY(-50%);
         top: 50%;
       }
-      &::before {border-left-color: $border-color;left: 100%;}
-      &::after {border-left-color: white;left: calc(100% - 1px)}
+      &::before {
+        border-left-color: black;
+        border-right: none;
+        left: 100%;
+      }
+      &::after {
+        border-left-color: white;
+        border-right: none;
+        left: calc(100% - 1px);
+      }
     }
-
     &.position-right {
       margin-left: 10px;
       &::before, &::after {
         transform: translateY(-50%);
-        right: 150%;
         top: 50%;
       }
-      &::before {border-right-color: $border-color;}
-      &::after {border-right-color: white;}
+      &::before {
+        border-right-color: black;
+        border-left: none;
+        right: 100%;
+      }
+      &::after {
+        border-right-color: white;
+        border-left: none;
+        right: calc(100% - 1px);
+      }
     }
+
 
   }
 </style>
