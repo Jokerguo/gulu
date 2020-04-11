@@ -14,18 +14,26 @@
         eventBus: new Vue()
       }
     },
-    props:{
-      single :{
-        type : Boolean,
-        default : false,
+    props: {
+      single: {
+        type: Boolean,
+        default: false,
+      },
+      selected: {
+        type: String,
+      },
+    },
+    provide() {
+      return {
+        eventBus: this.eventBus
       }
     },
-    provide(){
-      if(this.single){
-        return{
-          eventBus: this.eventBus
-        }
-      }
+    mounted() {
+      this.eventBus.$emit('update:selected',this.selected)
+      this.eventBus.$on('update:selected',(name)=>{
+        this.$emit('update:selected',name)
+
+      })
     },
   }
 </script>

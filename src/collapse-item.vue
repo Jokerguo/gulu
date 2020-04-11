@@ -16,31 +16,40 @@
       title: {
         type: String,
         required: true
+      },
+      name:{
+        type : String,
       }
     },
-    data(){
-      return{
-        open : false,
+    data() {
+      return {
+        open: false,
       }
     },
-    inject:['eventBus'],
+    inject: ['eventBus'],
     mounted() {
-      this.eventBus && this.eventBus.$on('update:selected',(vm)=>{
-        if(vm !== this){
-          this.open = false
+      this.eventBus.$on('update:selected', (name) => {
+        if(name === this.name){
+          this.show()
+        }else{
+          this.close()
         }
       })
     },
-    methods:{
-      toggle(){
+    methods: {
+      toggle() {
         if (this.open) {
           this.open = false
         } else {
-          this.open = true
-          this.eventBus && this.eventBus.$emit('update:selected', this)
+          this.eventBus.$emit('update:selected', this.name)
         }
       },
-
+      show(){
+        this.open = true
+      },
+      close(){
+        this.open = false
+      },
     },
   }
 </script>
@@ -58,17 +67,18 @@
       min-height: 32px;
       display: flex;
       align-items: center;
-      padding:0 8px;
+      padding: 0 8px;
     }
-    &:first-child{
-      >.title{
+
+    &:first-child {
+      > .title {
         border-top-left-radius: $border-radius;
         border-top-right-radius: $border-radius;
       }
     }
 
-    >.content{
-      padding:8px;
+    > .content {
+      padding: 8px;
     }
   }
 </style>
