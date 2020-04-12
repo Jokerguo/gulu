@@ -1,7 +1,6 @@
 module.exports = {
-  title: '轱辘 UI',
-  description: '一个非常好用的Vue UI组件库',
-
+  title: '轱辘UI',
+  description: '一个好用的UI框架',
   themeConfig: {
     nav: [
       {text: '主页', link: '/'},
@@ -18,8 +17,17 @@ module.exports = {
       },
       {
         title: '组件',
-        children: ['components/button.md']
+        children: [
+          '/components/button',
+          '/components/tabs',
+          '/components/input',
+          '/components/grid',
+          '/components/layout',
+          '/components/toast',
+          '/components/tabs',
+        ]
       },
+
     ]
   }
 }

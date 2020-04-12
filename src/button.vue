@@ -15,7 +15,6 @@
     components: {
       'g-icon':Icon
     },
-    // props: ['icon', 'iconPosition']
     props: {
       icon: {},
       loading: {
@@ -28,7 +27,8 @@
         validator(value) {
           return !(value !== 'left' && value !== 'right')
         }
-      }
+      },
+
     }
   }
 
