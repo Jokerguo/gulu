@@ -1,5 +1,6 @@
 <template>
-  <button class="g-button" :class="{[`icon-${iconPosition}`] : true}" @click="$emit('click')">
+  <button class="g-button" :class="{[`icon-${iconPosition}`] : true,['disabled']:disabled}"
+          @click="!disabled && $emit('click')">
     <g-icon class="loading icon" v-if="loading" name="loading"></g-icon>
     <g-icon v-if="icon && !loading" :name="icon" class="icon"></g-icon>
     <div class="content">
@@ -28,8 +29,16 @@
           return !(value !== 'left' && value !== 'right')
         }
       },
-
-    }
+      disabled:{
+        type : Boolean,
+        default: false
+      }
+    },
+    mounted() {
+    this.$on('click',()=>{
+      console.log(1)
+    })
+      },
   }
 
 </script>
@@ -73,6 +82,12 @@
     > .icon {order: 1;margin-right: .2em;}
 
     > .content {order: 2;}
+
+    &.disabled{
+      background: #ddd;
+      border: 1px solid #ccc;
+      color: #aaa;
+    }
 
     &.icon-right {
       .icon {
