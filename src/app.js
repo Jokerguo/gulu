@@ -47,7 +47,7 @@ Vue.component('g-collapse-item',CollapseItem)
 new Vue({
     el: '#app',
     data: {
-      selectedTab: ['2']
+      selectedTab: 'sports'
     },
   created(){
   },
@@ -56,12 +56,13 @@ new Vue({
         console.log('yyy')
       },
       showToast(){
-        this.$toast(`${parseInt(Math.random() * 100)}你的余额需要充值`,{
-          position:'middle',
-          enableHtml: false,
-          closeButton: {text:'已充值',callback(){console.log('他说已经充值了')}},
-          autoClose: 3
-        })
+        // this.$toast(`${parseInt(Math.random() * 100)}你的余额需要充值`,{
+        //   position:'middle',
+        //   enableHtml: false,
+        //   closeButton: {text:'已充值',callback(){console.log('他说已经充值了')}},
+        //   autoClose: 3
+        // })
+        this.$toast('我是提示信息')
       }
     },
   }

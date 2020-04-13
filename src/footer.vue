@@ -12,5 +12,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+  .footer{
+    height: 30px;
+  }
 </style>

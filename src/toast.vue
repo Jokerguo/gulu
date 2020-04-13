@@ -19,7 +19,7 @@
     props: {
       autoClose: {
         type: [Boolean, Number],
-        default: 5,
+        default: 3,
         validator(value) {
           return value === false || typeof value === 'number'
         }
@@ -45,6 +45,7 @@
       }
     },
     mounted() {
+      console.log('xxx')
       this.updateStyle()
       this.exeAutoClose()
     },
@@ -106,6 +107,7 @@
   }
 
   .wrapper {
+    z-index: 999;
     position: fixed; left: 50%;
     transform: translateX(-50%);
 
@@ -154,6 +156,7 @@
     .close {
       padding-left: 16px;
       flex-shrink: 0;
+      cursor: pointer;
     }
 
     .line {

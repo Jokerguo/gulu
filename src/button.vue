@@ -36,7 +36,6 @@
     },
     mounted() {
     this.$on('click',()=>{
-      console.log(1)
     })
       },
   }
